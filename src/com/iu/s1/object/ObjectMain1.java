@@ -28,6 +28,7 @@ public class ObjectMain1 {
 		Test test2 = new Test();
 		System.out.println(test == test2);
 		System.out.println(test.num1==test2.num1);
+		test2.num2=2;
 		System.out.println(test.equals(test2));
 //		test.hashCode();
 		
