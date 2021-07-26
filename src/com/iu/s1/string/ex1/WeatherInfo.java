@@ -20,14 +20,16 @@ public class WeatherInfo {
 		System.out.println(info);
 		
 		String [] strings = info.split(",");
+		System.out.println(strings.length);
+		WeatherDTO [] weatherDTOs = new WeatherDTO[strings.length/4];
 		
-		for(int i=0;i<strings.length;i++) {
-			WeatherDTO weatherDTO = new WeatherDTO();
-			weatherDTO.setCity(strings[0]);
-			weatherDTO.setGion(strings[1]);
-			weatherDTO.setHum(strings[2]);
-			weatherDTO.setCity(strings[3]);
-		}
+//		for(int i=0;i<strings.length;i++) {
+//			WeatherDTO weatherDTO = new WeatherDTO();
+//			weatherDTO.setCity(strings[0]);
+//			weatherDTO.setGion(strings[1]);
+//			weatherDTO.setHum(strings[2]);
+//			weatherDTO.setCity(strings[3]);
+//		}
 		
 		
 		return null;
