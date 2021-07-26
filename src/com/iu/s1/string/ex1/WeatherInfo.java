@@ -13,8 +13,24 @@ public class WeatherInfo {
 		sb.append("jeju, 3, 40 , 비");
 	}
 	
-	public void makeWeather() {
-		System.out.println(sb);
+	public WeatherDTO [] makeWeather() {
+		//split
+		//trim
+		info = sb.toString();
+		System.out.println(info);
+		
+		String [] strings = info.split(",");
+		
+		for(int i=0;i<strings.length;i++) {
+			WeatherDTO weatherDTO = new WeatherDTO();
+			weatherDTO.setCity(strings[0]);
+			weatherDTO.setGion(strings[1]);
+			weatherDTO.setHum(strings[2]);
+			weatherDTO.setCity(strings[3]);
+		}
+		
+		
+		return null;
 	}
 
 }

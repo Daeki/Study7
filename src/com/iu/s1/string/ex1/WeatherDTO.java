@@ -3,8 +3,8 @@ package com.iu.s1.string.ex1;
 public class WeatherDTO {
 	
 	private String city;
-	private int gion;
-	private int hum;
+	private String gion;
+	private String hum;
 	private String condition;
 	
 	public String getCity() {
@@ -13,16 +13,16 @@ public class WeatherDTO {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public int getGion() {
+	public String getGion() {
 		return gion;
 	}
-	public void setGion(int gion) {
+	public void setGion(String gion) {
 		this.gion = gion;
 	}
-	public int getHum() {
+	public String getHum() {
 		return hum;
 	}
-	public void setHum(int hum) {
+	public void setHum(String hum) {
 		this.hum = hum;
 	}
 	public String getCondition() {
@@ -31,6 +31,8 @@ public class WeatherDTO {
 	public void setCondition(String condition) {
 		this.condition = condition;
 	}
+	
+	
 	
 	
 
