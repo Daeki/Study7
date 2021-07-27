@@ -14,25 +14,25 @@ public class WeatherInfo {
 	}
 	
 	public WeatherDTO [] makeWeather() {
-		//split
-		//trim
+		//StringBuffer에 있는 Data를 String으로 변환
 		info = sb.toString();
 		System.out.println(info);
 		
+		//파싱(parsing, 문자열을 자르는 작업)
 		String [] strings = info.split(",");
 		System.out.println(strings.length);
-		WeatherDTO [] weatherDTOs = new WeatherDTO[strings.length/4];
+		WeatherDTO [] weathers = new WeatherDTO[strings.length/4];
 		
-//		for(int i=0;i<strings.length;i++) {
-//			WeatherDTO weatherDTO = new WeatherDTO();
-//			weatherDTO.setCity(strings[0]);
-//			weatherDTO.setGion(strings[1]);
-//			weatherDTO.setHum(strings[2]);
-//			weatherDTO.setCity(strings[3]);
-//		}
+		for(int i=0;i<strings.length;i++) {
+			WeatherDTO weatherDTO = new WeatherDTO();
+			weatherDTO.setCity(strings[i].trim());
+			weatherDTO.setGion(strings[++i].trim());
+			weatherDTO.setHum(strings[++i].trim());
+			weatherDTO.setCondition(strings[++i].trim());
+			weathers[i/4]=weatherDTO;
+		}
 		
-		
-		return null;
+		return weathers;
 	}
 
 }
