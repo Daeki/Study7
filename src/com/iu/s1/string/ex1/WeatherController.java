@@ -3,11 +3,13 @@ package com.iu.s1.string.ex1;
 import java.util.Scanner;
 
 public class WeatherController {
-	private WeatherInfo weatherInfo;
 	
+	private WeatherInfo weatherInfo;
+	private WeatherView weatherView;
 	
 	public WeatherController() {
 		weatherInfo = new WeatherInfo();
+		weatherView = new WeatherView();
 	}
 	
 	
@@ -16,7 +18,7 @@ public class WeatherController {
 		Scanner sc = new Scanner(System.in);
 		boolean check=true;
 		
-		weatherInfo.makeWeather();
+		WeatherDTO [] weathers = weatherInfo.makeWeather();
 		
 		while(check) {
 			System.out.println("1. 전체날씨정보출력");
@@ -26,7 +28,7 @@ public class WeatherController {
 			int select = sc.nextInt();
 			
 			if(select == 1) {
-				System.out.println("1");
+				this.weatherView.view(weathers);
 			}else if(select == 2) {
 				System.out.println("2");
 			}else if(select==3) {
