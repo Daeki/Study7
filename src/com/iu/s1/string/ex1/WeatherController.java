@@ -30,7 +30,12 @@ public class WeatherController {
 			if(select == 1) {
 				this.weatherView.view(weathers);
 			}else if(select == 2) {
-				System.out.println("2");
+				WeatherDTO weatherDTO = this.weatherInfo.searchWeather(weathers);
+				if(weatherDTO != null) {
+					this.weatherView.view(weatherDTO);
+				}else {
+					this.weatherView.view("정보가 없어요");
+				}
 			}else if(select==3) {
 				System.out.println("3");
 			}else {
