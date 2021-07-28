@@ -20,7 +20,11 @@ public class MemberController {
 		
 		boolean check=true;
 		while(check) {
+			
+			afterLogin();
+			
 			check=beforeLogin();
+			
 			
 		}
 		//1. 회원가입
@@ -50,6 +54,7 @@ public class MemberController {
 			MemberDTO memberDTO = memberDAO.memberLogin(ar);
 			if(memberDTO != null) {
 				System.out.println("로그인 성공");
+				MemberSession.SESSION.put("member", memberDTO);
 			}else {
 				System.out.println("로그인 실패");
 			}
