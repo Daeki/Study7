@@ -7,9 +7,58 @@ import java.util.StringTokenizer;
 public class MemberDAO {
 	
 	private String info;
+	private Scanner sc;
 	
 	public MemberDAO() {
 		info ="iu,pw1,32,suji,pw2,27,choa,pw3,30";
+		sc = new Scanner(System.in);
+	}
+	
+	//memberLogin
+	//Scanner로 id, pw를 입력받아서 MemberDTO 멤버변수
+	//매개변수로 ArrayList를 받아서 입력받은 id, pw 둘다 일치하는
+	//것을 찾아서 해당 DTO를 리턴
+	public MemberDTO memberLogin(ArrayList<MemberDTO> ar) {
+		MemberDTO memberDTO = new MemberDTO();
+		System.out.println("Id 입력");
+		memberDTO.setId(sc.next());
+		System.out.println("pw 입력");
+		memberDTO.setPw(sc.next());
+		MemberDTO result=null;
+		
+		for(int i=0;i<ar.size();i++) {
+			if(memberDTO.getId().equals(ar.get(i).getId()) && memberDTO.getPw().equals(ar.get(i).getPw())){
+				result = ar.get(i);
+				break;	
+			}
+		}
+		
+		return result;
+	}
+	
+	//memberDelete
+	//Scanner로 id, pw를 입력받아서 MemberDTO 멤버변수
+	//매개변수로 ArrayList를 받아서 입력받은 id, pw 둘다 일치하는
+	//것을 찾아서 삭제
+	public int memberDelete(ArrayList<MemberDTO> ar) {
+		
+		MemberDTO memberDTO = new MemberDTO();
+		System.out.println("Id 입력");
+		memberDTO.setId(sc.next());
+		System.out.println("pw 입력");
+		memberDTO.setPw(sc.next());
+		int result=0;
+		for(int i=0;i<ar.size();i++) {
+			if(memberDTO.getId().equals(ar.get(i).getId()) && memberDTO.getPw().equals(ar.get(i).getPw())){
+				ar.remove(i);
+				result=1;
+				break;	
+			}
+		}
+		
+		return result;
+		
+		
 	}
 	
 	
@@ -17,7 +66,7 @@ public class MemberDAO {
 	//scanner로 id, pw, age를 입력 받아서 MemberDTO 멤버변수
 	//매개변수로 ArrayList를 받아서 생성한 MemberDTO를 추가
 	public void memberAdd(ArrayList<MemberDTO> ar) {
-		Scanner sc = new Scanner(System.in);
+		
 		MemberDTO memberDTO = new MemberDTO();
 		System.out.println("Id 입력");
 		memberDTO.setId(sc.next());
