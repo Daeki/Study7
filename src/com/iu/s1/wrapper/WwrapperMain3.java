@@ -33,6 +33,11 @@ public class WwrapperMain3 {
 		String [] nums = jumin.split("");
 		int num3 = Integer.parseInt(nums[1]);
 		System.out.println(num3*3);
+		
+		System.out.println("---- Math ----");
+		double d = Math.random();
+		System.out.println(d);
+		
 	}
 
 }

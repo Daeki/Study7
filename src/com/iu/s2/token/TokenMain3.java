@@ -32,7 +32,7 @@ public class TokenMain3 {
 		//split
 		String [] strs = str2.split("-");
 		
-		for(int i=0;i<strs.length;i++) {
+		for(int j=0;i<strs.length;i++) {
 			Phone phone = new Phone();
 			phone.setName(strs[i]);
 			phone.setPrice(strs[++i]);
