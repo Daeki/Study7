@@ -18,6 +18,8 @@ public class CalendarMain4 {
 		SimpleDateFormat sf = new SimpleDateFormat(pattern);
 		String result = sf.format(date);
 		System.out.println(result);
+		
+		
 	}
 
 }
