@@ -31,24 +31,42 @@ public class Server1 {
 			
 			sc = ss.accept();
 			System.out.println("Client와 연결 성공");
-			is = sc.getInputStream();
-			ir = new InputStreamReader(is);
-			br = new BufferedReader(ir);
 			
-			String message = br.readLine();
-			System.out.println("클라이언트에서 보낸 메세지");
-			System.out.println("Client : "+message);
+			boolean check=true;
 			
-			System.out.println("클라이언트로 보낼 메세지 입력");
-			message = scanner.nextLine();
-			
-			//message 클라이언트로 전송
-			os = sc.getOutputStream();
-			ow = new OutputStreamWriter(os);
-			bw = new BufferedWriter(ow);
-			bw.write(message+"\r\n");
-			bw.flush();
-			
+			while(check) {
+				is = sc.getInputStream();
+				ir = new InputStreamReader(is);
+				br = new BufferedReader(ir);
+				
+				String message = br.readLine();
+				System.out.println("클라이언트에서 보낸 메세지");
+				System.out.println("Client : "+message);
+				
+				if(message.toUpperCase().equals("Q")) {
+					//break;
+					check=false;
+					continue;
+				}
+				
+				
+				System.out.println("클라이언트로 보낼 메세지 입력");
+				message = scanner.nextLine();
+				
+				//message 클라이언트로 전송
+				os = sc.getOutputStream();
+				ow = new OutputStreamWriter(os);
+				bw = new BufferedWriter(ow);
+				bw.write(message+"\r\n");
+				bw.flush();
+				
+				if(message.toUpperCase().equals("Q")) {
+					//break;
+					check=false;
+					continue;
+				}
+				
+			}//while 의 끝
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -30,30 +30,47 @@ public class Cient1 {
 			sc = new Socket("127.0.0.1", 8282);
 			System.out.println("서버와 접속이 성공");
 			
-			//서버로 메세지 전송
-			System.out.println("서버로 보낼 메세지 입력");
-			String message=scanner.nextLine();
+			boolean check=true;
 			
-			//byte 처리
-			os = sc.getOutputStream();
-			//문자 처리
-			ow = new OutputStreamWriter(os);
-			//문자열 처리
-			bw = new BufferedWriter(ow);
-			
-			bw.write(message+"\r\n");
-			bw.flush();
-			System.out.println("서버로 전송 성공");
-			
-			//서버에서 보낸 메세지를 받아서 출력
-			is = sc.getInputStream();
-			ir = new InputStreamReader(is);
-			br = new BufferedReader(ir);
-			
-			message = br.readLine();
-			System.out.println("서버에서 보낸 메세지");
-			System.out.println("Sever : "+message);
-			
+			while(check) {
+				//서버로 메세지 전송
+				System.out.println("서버로 보낼 메세지 입력");
+				String message=scanner.nextLine();
+				
+				//byte 처리
+				os = sc.getOutputStream();
+				//문자 처리
+				ow = new OutputStreamWriter(os);
+				//문자열 처리
+				bw = new BufferedWriter(ow);
+				
+				bw.write(message+"\r\n");
+				bw.flush();
+				System.out.println("서버로 전송 성공");
+				
+				if(message.toUpperCase().equals("Q")) {
+					//break;
+					check=false;
+					continue;
+				}
+				
+				
+				//서버에서 보낸 메세지를 받아서 출력
+				is = sc.getInputStream();
+				ir = new InputStreamReader(is);
+				br = new BufferedReader(ir);
+				
+				message = br.readLine();
+				System.out.println("서버에서 보낸 메세지");
+				System.out.println("Sever : "+message);
+				
+				if(message.toUpperCase().equals("Q")) {
+					//break;
+					check=false;
+					//continue;
+				}
+				
+			}//while의 끝
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
